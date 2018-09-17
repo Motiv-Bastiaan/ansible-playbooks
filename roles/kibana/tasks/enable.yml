@@ -1,0 +1,8 @@
+---
+- name: Reload systemd daemon, enable Kibana service and start it
+  become: yes
+  systemd:
+          name: kibana
+          enabled: yes
+          daemon_reload: yes
+          state: started

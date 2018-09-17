@@ -1,0 +1,7 @@
+---
+- name: Install Elasticsearch
+  become: yes
+  apt:
+    deb: /tmp/elasticsearch-6.4.0.deb
+    state: present
+  notify: Remove package file

@@ -1,0 +1,5 @@
+---
+- name: Copy Elasticsearch package
+  copy:
+      src: elasticsearch-6.4.0.deb
+      dest: /tmp/elasticsearch-6.4.0.deb

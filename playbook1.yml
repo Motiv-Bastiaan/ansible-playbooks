@@ -1,0 +1,26 @@
+---
+- hosts: servers
+  tasks:
+        - name: connection test
+          ping:
+        - name: Install JAVA
+          become: yes
+          apt:
+              name: openjdk-8-jre
+              state: present
+        - name: Copy Elasticsearch package
+          copy:
+              src: files/elasticsearch-6.4.0.deb
+              dest: /tmp/elasticsearch-6.4.0.deb
+        - name: Install Elasticsearch
+          become: yes
+          apt:
+              deb: /tmp/elasticsearch-6.4.0.deb
+              state: present
+        - name: Reload systemd daemon, enable Elasticsearch service and start it
+          become: yes
+          systemd:
+                  name: elasticsearch
+                  enabled: yes
+                  daemon_reload: yes
+                  state: started

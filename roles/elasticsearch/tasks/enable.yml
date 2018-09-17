@@ -1,0 +1,8 @@
+---
+- name: Reload systemd daemon, enable Elasticsearch service and start it
+  become: yes
+  systemd:
+          name: elasticsearch
+          enabled: yes
+          daemon_reload: yes
+          state: started
