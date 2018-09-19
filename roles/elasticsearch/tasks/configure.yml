@@ -1,0 +1,20 @@
+---
+- name: Set JVM heapsize
+  become: yes
+  template:
+          src: jvm.options.j2
+          dest: /etc/elasticsearch/jvm.options
+
+- name: Set ES Config file
+  become: yes
+  template:
+          src: elasticsearch.yml.j2
+          dest: /etc/elasticsearch/elasticsearch.yml
+
+- name: Set the maximum number of open files to 65536
+  become: yes
+  shell: echo "elasticsearch  -  nofile  65536" | tee -a /etc/security/limits.conf 2>/dev/null 1>&2
+
+- name: Set swappiness to 1 so the system only swaps when absolutly necessary
+  become: yes
+  shell: sysctl vm.swappiness=1

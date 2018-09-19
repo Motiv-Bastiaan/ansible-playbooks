@@ -1,5 +1,5 @@
 #Ansible
-*.
+*.retry
 
 #python virtualenv
 *venv/
