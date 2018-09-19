@@ -2,6 +2,6 @@
 - name: Install Kibana
   become: yes
   apt:
-    deb: /tmp/kibana-6.4.0-amd64.deb
+    deb: /tmp/kibana-6.4.1-amd64.deb
     state: present
   notify: Remove package file

@@ -1,5 +1,5 @@
 ---
 - name: Copy Kibana package
   copy:
-      src: kibana-6.4.0-amd64.deb
-      dest: /tmp/kibana-6.4.0-amd64.deb
+      src: kibana-6.4.1-amd64.deb
+      dest: /tmp/kibana-6.4.1-amd64.deb
