@@ -1,5 +1,5 @@
 ---
 - name: Remove package file
   file:
-    path: /tmp/elasticsearch-6.4.0.deb
+    path: /tmp/elasticsearch-6.4.*
     state: absent

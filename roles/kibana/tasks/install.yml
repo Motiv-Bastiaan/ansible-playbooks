@@ -1,7 +1,16 @@
 ---
-- name: Install Kibana
+- name: Install Kibana on Ubuntu
   become: yes
   apt:
     deb: /tmp/kibana-6.4.1-amd64.deb
     state: present
   notify: Remove package file
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install Kibana on CentOS
+  become: yes
+  yum:
+    name: /tmp/kibana-6.4.1-amd64.rpm
+    state: present
+  notify: Remove package file
+  when: ansible_distribution == "CentOS"

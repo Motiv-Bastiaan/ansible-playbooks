@@ -1,7 +1,17 @@
 ---
-- name: Install Elasticsearch
+- name: Install Elasticsearch on Ubuntu
   become: yes
   apt:
     deb: /tmp/elasticsearch-6.4.1.deb
     state: present
   notify: Remove package file
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install Elasticsearch on CentOS
+  become: yes
+  yum:
+    name: /tmp/elasticsearch-6.4.1.rpm
+    state: present
+  notify: Remove package file
+  when: ansible_distribution == "CentOS"
+
