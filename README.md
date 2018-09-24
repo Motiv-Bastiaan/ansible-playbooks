@@ -13,8 +13,14 @@ pwd
 ssh-keygen -t rsa -b 4096 #give the keys dir you just created as location for the file, don't use a passphrase
 
 # Create a python venv with ansible on the HOST machine
-# Depending on your environment you might need enable ubuntu universe repository (sudo add-apt-repository universe), install python virtualenv (sudo apt-get install python3-venv), install python dev (sudo apt install python3-dev) or add python to your path.
+# Depending on your environment you might need to 
+# UBUNTU 
+# enable ubuntu universe repository (sudo add-apt-repository universe), install python virtualenv (sudo apt-get install python3-venv), install python dev (sudo apt install python3-dev) or add python to your path.
 python3 -m venv ansiblevenv
+# CentOS
+# install python3 sudo yum install rh-python36, enable Software Collections sudo yum install centos-release-scl, install dev tools sudo yum groupinstall 'Development Tools'
+scl enable rh-python36 bash
+python -m venv ansibleenv
 # Now activate the Python virtual environment
 source ./ansiblevenv/bin/activate
 # Upgrade pip to the lastest version
