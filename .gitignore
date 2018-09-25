@@ -9,6 +9,7 @@ keys/*
 
 #Large files
 roles/*/files/*.deb
+roles/*/files/*.rpm
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
