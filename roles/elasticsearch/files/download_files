@@ -1,4 +1,2 @@
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.deb
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.0.deb
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.rpm
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.0.rpm
+curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.deb -o elasticsearch-6.4.1.deb
+curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.rpm -o elasticsearch-6.4.1.rpm

@@ -1,4 +1,2 @@
-wget https://artifacts.elastic.co/downloads/kibana/kibana-6.4.1-amd64.deb
-wget https://artifacts.elastic.co/downloads/kibana/kibana-6.4.0-amd64.deb
-wget https://artifacts.elastic.co/downloads/kibana/kibana-6.4.1-x86_64.rpm
-wget https://artifacts.elastic.co/downloads/kibana/kibana-6.4.0-x86_64.rpm
+curl https://artifacts.elastic.co/downloads/kibana/kibana-6.4.1-amd64.deb -o kibana-6.4.1-amd64.deb
+curl https://artifacts.elastic.co/downloads/kibana/kibana-6.4.1-x86_64.rpm -o kibana-6.4.1-x86_64.rpm

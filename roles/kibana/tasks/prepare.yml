@@ -1,5 +1,12 @@
 ---
-- name: Copy Kibana package
+- name: Copy Kibana package on Ubuntu
   copy:
       src: kibana-6.4.1-amd64.deb
       dest: /tmp/kibana-6.4.1-amd64.deb
+  when: ansible_distribution == "Ubuntu"
+
+- name: Copy Kibana package on CentOS
+  copy:
+      src: kibana-6.4.1-x86_64.rpm
+      dest: /tmp/kibana-6.4.1-x86_64.rpm
+  when: ansible_distribution == "CentOS"

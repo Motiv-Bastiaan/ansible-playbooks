@@ -10,7 +10,7 @@
 - name: Install Kibana on CentOS
   become: yes
   yum:
-    name: /tmp/kibana-6.4.1-amd64.rpm
+    name: /tmp/kibana-6.4.1-x86_64.rpm
     state: present
   notify: Remove package file
   when: ansible_distribution == "CentOS"

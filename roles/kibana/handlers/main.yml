@@ -1,5 +1,5 @@
 ---
 - name: Remove package file
   file:
-    path: /tmp/kibana-6.4.0-amd6*
+    path: /tmp/kibana*
     state: absent

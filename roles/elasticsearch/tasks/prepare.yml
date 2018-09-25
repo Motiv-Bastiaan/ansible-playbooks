@@ -1,5 +1,12 @@
 ---
-- name: Copy Elasticsearch package
+- name: Copy Elasticsearch package on ubuntu
   copy:
       src: elasticsearch-6.4.1.deb
       dest: /tmp/elasticsearch-6.4.1.deb
+  when: ansible_distribution == "Ubuntu"
+
+- name: Copy Elasticsearch package on CentOS
+  copy:
+      src: elasticsearch-6.4.1.rpm
+      dest: /tmp/elasticsearch-6.4.1.rpm
+  when: ansible_distribution == "CentOS"
