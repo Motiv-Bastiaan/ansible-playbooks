@@ -1,0 +1,16 @@
+---
+- name: Install Java10 on Ubuntu
+  become: yes
+  apt:
+    deb: /tmp/jdk-10.0.2_linux-x64_bin.rpm
+    state: present
+  notify: Remove package file
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install Java10 on CentOS
+  become: yes
+  yum:
+    name: /tmp/jdk-10.0.2_linux-x64_bin.rpm
+    state: present
+  notify: Remove package file
+  when: ansible_distribution == "CentOS"

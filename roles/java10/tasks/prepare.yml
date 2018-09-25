@@ -1,0 +1,12 @@
+---
+- name: Copy Java10 package to CentOS
+  copy:
+      src: jdk-10.0.2_linux-x64_bin.rpm
+      dest: /tmp/jdk-10.0.2_linux-x64_bin.rpm
+  when: ansible_distribution == "CentOS"
+
+- name: Copy Java10 package to Ubuntu
+  copy:
+      src: jdk-10.0.2_linux-x64_bin.rpm
+      dest: /tmp/jdk-10.0.2_linux-x64_bin.rpm
+  when: ansible_distribution == "Ubuntu"

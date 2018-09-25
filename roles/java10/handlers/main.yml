@@ -1,0 +1,5 @@
+---
+- name: Remove package file
+  file:
+    path: /tmp/jdk-*
+    state: absent
