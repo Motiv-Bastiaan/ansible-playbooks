@@ -3,3 +3,10 @@
   file:
     path: /tmp/kibana*
     state: absent
+
+- name: Reload Elasticsearch
+  become: yes
+  systemd:
+          name: elasticsearch
+          state: restarted
+

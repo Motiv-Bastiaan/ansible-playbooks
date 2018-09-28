@@ -14,19 +14,24 @@
 - name: Copy FirewallD service on Centos
   become: yes
   copy:
-     src: {{ item.src }}
-     dest: {{ item.dest }}
+     src: "{{ item.src }}"
+     dest: "{{ item.dest }}"
   with_items:
           - { src: 'elasticsearch.xml', dest: '/usr/lib/firewalld/services/elasticsearch.xml' }
           - { src: 'elasticsearch_transport.xml', dest: '/usr/lib/firewalld/services/elasticsearch_transport.xml' }
   when: ansible_distribution == "CentOS"
+  notify: Reload Elasticsearch
 
-- name: Reload FirewallD
-  become: yes
-  command: firewall-cmd --reload
+- include_tasks: reload_firewall.yml
 
-- name: Enable ES service on FirewallD
+- name: Enable elasticsearch service on FirewallD
   become: yes
   command: firewall-cmd --zone=public --permanent --add-service=elasticsearch
+  when: ansible_distribution == "CentOS"
+
+- name: Enable ES transport service on FirewallD
+  become: yes
   command: firewall-cmd --zone=public --permanent --add-service=elasticsearch_transport
   when: ansible_distribution == "CentOS"
+
+- include_tasks: reload_firewall.yml

@@ -3,3 +3,9 @@
   file:
     path: /tmp/elasticsearch-6.4.*
     state: absent
+
+- name: Reload Elasticsearch
+  become: yes
+  systemd:
+          name: elasticsearch
+          state: restarted

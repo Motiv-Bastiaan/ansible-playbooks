@@ -3,3 +3,27 @@
   template:
           src: kibana.yml.j2
           dest: /etc/kibana/kibana.yml
+
+- name: Set Kibana ES node as not master eligible
+  become: yes
+  lineinfile:
+          path: /etc/elasticsearch/elasticsearch.yml
+          state: present
+          line: "node.master: false"
+  notify: Reload Elasticsearch
+
+- name: Set Kibana ES node as no data node
+  become: yes
+  lineinfile:
+          path: /etc/elasticsearch/elasticsearch.yml
+          state: present
+          line: "node.data: false"
+  notify: Reload Elasticsearch
+
+- name: Set Kibana ES node as no ingest node
+  become: yes
+  lineinfile:
+          path: /etc/elasticsearch/elasticsearch.yml
+          state: present
+          line: "node.ingest: false"
+  notify: Reload Elasticsearch
