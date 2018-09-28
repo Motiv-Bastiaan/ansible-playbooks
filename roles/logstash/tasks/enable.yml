@@ -1,0 +1,8 @@
+---
+- name: Reload systemd daemon, enable Logstash service and start it
+  become: yes
+  systemd:
+          name: logstash
+          enabled: yes
+          daemon_reload: yes
+          state: started

@@ -1,0 +1,5 @@
+---
+- name: Remove package file
+  file:
+    path: /tmp/logstash*
+    state: absent

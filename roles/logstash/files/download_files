@@ -1,0 +1,2 @@
+curl https://artifacts.elastic.co/downloads/logstash/logstash-6.4.1.deb -o logstash-6.4.1.deb
+curl https://artifacts.elastic.co/downloads/logstash/logstash-6.4.1.rpm -o logstash-6.4.1.rpm

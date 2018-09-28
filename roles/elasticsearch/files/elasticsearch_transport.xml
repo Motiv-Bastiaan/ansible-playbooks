@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>Elasticsearch transport</short>
+  <description>You Know, for Search. All default Elasticsearch and transmission ports.</description>
+  <port protocol="tcp" port="9300"/>
+</service>
+
