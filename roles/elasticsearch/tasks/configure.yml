@@ -13,7 +13,10 @@
 
 - name: Set the maximum number of open files to 65536
   become: yes
-  shell: echo "elasticsearch  -  nofile  65536" | tee -a /etc/security/limits.conf 2>/dev/null 1>&2
+  lineinfile:
+          path: /etc/security/limits.conf
+          line: "elasticsearch  -  nofile  65536"
+          state: present
 
 - name: Set swappiness to 1 so the system only swaps when absolutly necessary
   become: yes
