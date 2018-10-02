@@ -10,3 +10,28 @@
       src: kibana-6.4.1-x86_64.rpm
       dest: /tmp/kibana-6.4.1-x86_64.rpm
   when: ansible_distribution == "CentOS"
+
+- name: Copy FirewallD service files on Centos
+  become: yes
+  copy:
+          src: kibana.xml
+          dest: /usr/lib/firewalld/services/kibana.xml
+  when: ansible_distribution == "CentOS"
+
+- name: Reload FirewallD
+  include_role: 
+        name: elasticsearch
+        tasks_from: reload_firewall
+
+- name: Enable kibana service on FirewallD
+  become: yes
+  firewalld:
+          zone: public
+          service: kibana
+          permanent: true
+          state: enabled
+
+- name: Reload FirewallD
+  include_role:
+        name: elasticsearch
+        tasks_from: reload_firewall
