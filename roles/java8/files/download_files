@@ -1,0 +1,2 @@
+curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm -o jdk-8u181-linux-x64.rpm
+curl http://archive.ubuntu.com/ubuntu/pool/universe/o/openjdk-8/openjdk-8-jre-headless_8u181-b13-0ubuntu0.18.04.1_amd64.deb -o openjdk-8-jre-headless_8u181-b13-0ubuntu0.18.04.1_amd64.deb

@@ -1,6 +1,16 @@
 ---
-- name: Install JAVA
+- name: Install Java8 on Ubuntu
   become: yes
   apt:
-      name: openjdk-8-jre
+      deb: /tmp/openjdk-8-ubuntu-dep/*.deb
       state: present
+  notify: remove ubuntu package directory
+  when: ansible_distribution == "Ubuntu" and java_installed is failed
+
+- name: Install Java8 on Centos
+  become: yes
+  yum:
+      name: /tmp/jdk-8u181-linux-x64.rpm
+      state: present
+  notify: remove centos package file
+  when: ansible_distribution == "CentOS"

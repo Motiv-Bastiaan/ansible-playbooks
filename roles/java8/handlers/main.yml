@@ -1,0 +1,10 @@
+---
+- name: remove centos package file
+  file:
+      path: /tmp/jdk-8u*-linux-x64.rpm
+      state: absent
+
+- name: remove ubuntu package directory
+  file:
+     path: /tmp/openjdk-8-ubuntu-dep/
+     state: absent
